@@ -1,0 +1,64 @@
+head="<style>.table{display:flex;flex-direction:column}.row{display:flex;justify-content:space-between}</style>"
+
+CARD 'server status'
+_
+<div class="table">
+_
+quiet=1 aman status | while read -r i
+do
+__
+    <div class="row">
+        <div>${i%=*}</div>
+        <div>${i##*=}</div>
+    </div>
+__
+done
+__
+    <hr>
+    <div class="row">
+        <div>load</div>
+        <div>$(awk '{print $1,$2,$3}' /proc/loadavg)</div>
+    </div>
+
+    <div class="row">
+        <div>memory</div>
+        <div>$(free -m | awk 'NR==2{printf "%s/%sMB (%.f%)", $3,$2,$3*100/$2}')</div>
+    </div>
+    <div class="row">
+        <div>disk</div>
+        <div>$(df / -h | awk '$NF=="/"{printf "%s/%s (%s)", $3,$2,$5}')</div>
+    </div>
+    <div class="row">
+        <div>uptime</div>
+        <div>$(uptime | awk -F, '{sub(".*up ",x,$1);print $1}' | sed -e 's/^[ \t]*//')</div>
+    </div>
+</div>
+<p style="text-align: center">updated at $(date -u +"%H:%M") (UTC)</p>
+__
+ENDCARD
+
+CARD 'log'
+_m
+**22-01-24 20:30**  
+- Improve security of podman containers.
+	- Run with readonly filesystem.
+	- Drop all capabilities on start.
+- Kernel update
+
+**22-01-22 18:50**  
+- Reduce size of vikunja and irc images using podman --squash
+- Switch from dropbear to openssh.
+
+**22-01-09 13:00 - 15:00**  
+Downtime because of maintenance.
+- Configured automatic backups of container images.
+- Verified that recover from backups, container update fallbacks and server reboots are working.
+
+**22-01-08 12:00 - 16:00**  
+Downtime because of maintenance.
+- Switched podman from FUSE to kernel overlay FS.
+- Refactored and optimized the irc and vikunja container images.
+- Switched storage of container from mounts to named volumes.
+- Refactored aman. (the acani server manager and its files)
+_m
+ENDCARD

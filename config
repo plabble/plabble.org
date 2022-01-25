@@ -1,0 +1,15 @@
+# global variables
+website='acani'
+description='acani server page'
+url='https://acani.xyz'
+
+bg='#2d3d31'
+cbg='#222218'
+fg='#97a997'
+
+# helper functions
+CARD(){ printf '<div class="card"><div class="flex"><svg width="60" height="60"><use href="/icons.svg#header"/></svg><h2>%s</h2></div>' "$1"; }
+ENDCARD(){ printf "</div>"; }
+
+# register modules
+use 'templates' 'minify' 'markdown' 'compression/brotli' 'compression/gzip'

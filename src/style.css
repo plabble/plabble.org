@@ -1,0 +1,35 @@
+__
+html {
+	font-family: Helvetica-Neue, Helvetica, sans-serif;
+	font-size: 1.2em;
+	line-height: 1.5em;
+	letter-spacing: .03em;
+	color: $fg;
+	background: $bg
+}
+body { margin: 0 }
+a { color: $fg }
+hr { border-color: $fg; margin: 1rem 0 } 
+::-webkit-scrollbar { width: .4em; background: #0000 }
+::-webkit-scrollbar-thumb { border-radius: 1em; background: #0004 }
+
+/* nav */
+.nav { width: 8em }
+.nav a { text-decoration: none; display: block; padding: .2em 0 }
+
+/* classes */
+.card {
+	border-radius: 1em;
+	padding: 1em;
+	margin: 2em auto 0;
+	background: $cbg;
+}
+.flex { display:flex; align-items:center }
+
+/* layout */
+@media (min-width: 50em) {
+	.nav { position: fixed; top: 0; left: 2em }
+	.content { margin: auto; max-width: 65em; padding: 0 2em 0 17em }
+	.card { padding: 1em 2em; margin: 2em auto }
+}
+__
