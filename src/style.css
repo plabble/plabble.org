@@ -1,15 +1,16 @@
-__
+/* :root { --bg: #2d3d31; --cbg: #222218; --fg: #97a997 } */
+:root { --bg: #556458; --cbg: #eee; --fg: #3d4a3d }
 html {
 	font-family: Helvetica-Neue, Helvetica, sans-serif;
 	font-size: 1.2em;
 	line-height: 1.5em;
 	letter-spacing: .03em;
-	color: $fg;
-	background: $bg
+	color: var(--fg);
+	background: var(--bg)
 }
 body { margin: 0 }
-a { color: $fg }
-hr { border-color: $fg; margin: 1rem 0 } 
+a { color: var(--fg) }
+hr { border-color: var(--fg); margin: 1rem 0 }
 ::-webkit-scrollbar { width: .4em; background: #0000 }
 ::-webkit-scrollbar-thumb { border-radius: 1em; background: #0004 }
 
@@ -22,7 +23,7 @@ hr { border-color: $fg; margin: 1rem 0 }
 	border-radius: 1em;
 	padding: 1em;
 	margin: 2em auto 0;
-	background: $cbg;
+	background: var(--cbg);
 }
 .flex { display:flex; align-items:center }
 
@@ -32,4 +33,3 @@ hr { border-color: $fg; margin: 1rem 0 }
 	.content { margin: auto; max-width: 65em; padding: 0 2em 0 17em }
 	.card { padding: 1em 2em; margin: 2em auto }
 }
-__
